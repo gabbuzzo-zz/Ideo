@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ideo.Views.LoginPage">
+    <ContentPage.Resources>
+        <Style TargetType="BoxView">
+            <Setter Property="BackgroundColor" Value="Red"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"  >
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
+                <BoxView HeightRequest="250" WidthRequest="250"
+                         HorizontalOptions="CenterAndExpand" CornerRadius="75,75,75,75"/>
+                <Label VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="10,10,10,10" AbsoluteLayout.LayoutFlags="WidthProportional" HorizontalOptions="Center" Text="Welcome to Ideo!"/>
+            </AbsoluteLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
+            <Entry x:Name="usrName" Placeholder="Username" MaxLength="15" HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="PssWord" Placeholder="Password" IsPassword="True" HorizontalOptions="CenterAndExpand" />
+            <Button Text="Accedi" Clicked="OnLoginClick"/>
+        </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
