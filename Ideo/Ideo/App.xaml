@@ -4,7 +4,7 @@
              x:Class="Ideo.App">
     <Application.Resources>
         <Style TargetType="Button">
-            <Setter Property="BackgroundColor" Value="#ff66ff"></Setter>
+            <Setter Property="BackgroundColor" Value="DarkSlateBlue"></Setter>
         </Style>
     </Application.Resources>
 </Application>
