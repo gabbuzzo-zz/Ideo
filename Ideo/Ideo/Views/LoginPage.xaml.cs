@@ -24,7 +24,7 @@ namespace Ideo.Views
 
         private async void OnLoginClick(object sender, EventArgs e)
         {
-            if (usrName.Text == String.Empty || PssWord.Text == String.Empty)
+            if (usrName.Text == String.Empty)
             {
                 await DisplayAlert("Testo vuoto", "Inserisci del testo", "Ok", FlowDirection.MatchParent);
             }
@@ -36,7 +36,9 @@ namespace Ideo.Views
                 {
                     if (usrName.Text == Users[userNum].Username)
                     {
-                        await Navigation.PushModalAsync(new MainPage());
+                        //await Navigation.PushModalAsync(new MainPage());
+                        PssWord.IsVisible = true;
+                        UserImage.Source = Users[userNum].ImagePath;
                         userNum = Users.Count;
                         Exist = true;
                     }
@@ -45,8 +47,12 @@ namespace Ideo.Views
                 {
                     await DisplayAlert("Hai sbagliato qualcosa", "Username o password non corretti", "Va bene");
                 }
-                //await Navigation.PushAsync(new MainPage());
+
             }
+            //if ()
+            //{
+            //    //await Navigation.PushAsync(new MainPage());
+            //}
         }
     }
 }

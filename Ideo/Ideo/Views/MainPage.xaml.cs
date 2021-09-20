@@ -16,5 +16,15 @@ namespace Ideo.Views
         {
             InitializeComponent();
         }
+
+        private void OnShareIdeaClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+
+        }
     }
 }

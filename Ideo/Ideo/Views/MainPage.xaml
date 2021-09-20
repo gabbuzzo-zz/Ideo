@@ -4,9 +4,28 @@
              x:Class="Ideo.Views.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <StackLayout>
+                <Label Text="Confronta le tue idee con altri utenti!!!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout>
+                <ListView ItemsSource="{Binding Ideas,Mode=TwoWay}" ItemTapped="OnItemTapped" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BindingContext="{Binding .,Mode=Default}" Orientation="Horizontal">
+                                <Label IsVisible="false" Text="{Binding Id,Mode=Default}"/>
+                                <Label Text="{Binding Title,Mode=Default}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Condividi una tua idea" Clicked="OnShareIdeaClick"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

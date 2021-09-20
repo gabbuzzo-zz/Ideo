@@ -13,12 +13,13 @@
         <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" >
                 <BoxView HeightRequest="250" WidthRequest="250"
                          HorizontalOptions="CenterAndExpand" CornerRadius="75,75,75,75"/>
-                <Label VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="10,10,10,10" AbsoluteLayout.LayoutFlags="WidthProportional" HorizontalOptions="Center" Text="Welcome to Ideo!"/>
+                    <Image x:Name="UserImage" Source="noImage.png"/>
+                    <Label VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="10,10,10,10" AbsoluteLayout.LayoutFlags="WidthProportional" HorizontalOptions="Center" Text="Welcome to Ideo!"/>
             </AbsoluteLayout>
             </StackLayout>
             <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
             <Entry x:Name="usrName" Placeholder="Username" MaxLength="15" HorizontalOptions="CenterAndExpand"/>
-            <Entry x:Name="PssWord" Placeholder="Password" IsPassword="True" HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="PssWord" Placeholder="Password" IsVisible="false" IsPassword="True" HorizontalOptions="CenterAndExpand" />
             <Button Text="Accedi" Clicked="OnLoginClick"/>
         </StackLayout>
         </StackLayout>
