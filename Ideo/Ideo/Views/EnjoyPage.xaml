@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ideo.Views.EnjoyPage">
+             x:Class="Ideo.Views.EnjoyPage" >
+    <ContentPage.Background>
+        <!-- StartPoint defaults to (0,0) -->
+        <LinearGradientBrush>
+            <GradientStop Color="Yellow"
+                          Offset="0.1" />
+            <GradientStop Color="Orange"
+                          Offset="3.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ContentPage.Content>
         <StackLayout>
-            <BoxView HeightRequest="50" BackgroundColor="Yellow"></BoxView>
-            <StackLayout VerticalOptions="CenterAndExpand" Padding="0,50,0,0">
+            <Frame  BackgroundColor="Transparent" BorderColor="Transparent"></Frame>
+            <Frame BackgroundColor="Yellow" BorderColor="Black" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="0,5,0,0">
                 <Label Text="Benvenuto su Ideo" FontSize="40" FontAttributes="Italic" FontFamily="BSRegular"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
@@ -13,14 +23,17 @@
                    HorizontalTextAlignment="Center" HorizontalOptions="Center" TextTransform="Uppercase"
                    VerticalOptions="Start"/>
             </StackLayout>
+            </Frame>
             <!--<Frame></Frame>-->
             <StackLayout VerticalOptions="EndAndExpand">
                 <Frame BackgroundColor="Transparent">
-                    <Button Text="Registrati subito!" TextColor="White" Padding="20,20,20,20" FontSize="32"  BackgroundColor="Yellow"/>
+                    <Button Text="Registrati subito!" FontAttributes="Italic" FontFamily="BSRegular"
+                            Padding="20,20,20,20" FontSize="32"  BackgroundColor="Yellow"
+                            TextColor="Black"/>
                 </Frame>
                     <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center">
-                        <Label Text="Oppure se hai un account" VerticalTextAlignment="Center" TextTransform="Uppercase"/>
-                        <Button BackgroundColor="Transparent" FontSize="20" VerticalOptions="Center" TextColor="LightSkyBlue" Text="Accedi"/>
+                    <Label Text="Oppure se hai un account" FontSize="18" VerticalTextAlignment="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
+                        <Button BackgroundColor="Transparent" FontSize="18" VerticalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue" Text="Accedi"/>
                     </StackLayout>
                 <Frame BackgroundColor="Yellow">
 

@@ -139,4 +139,10 @@
   <ItemGroup>
     <BundleResource Include="IdeooLogo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="bulb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="backGroundimage.jpg" />
+  </ItemGroup>
 </Project>
