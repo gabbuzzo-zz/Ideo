@@ -136,4 +136,7 @@
   <ItemGroup>
     <BundleResource Include="noImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="IdeooLogo.png" />
+  </ItemGroup>
 </Project>

@@ -14,9 +14,15 @@
                     <Frame HeightRequest="250" WidthRequest="250"
                          HorizontalOptions="FillAndExpand" CornerRadius="20">
                         <StackLayout>
-                            <Image x:Name="UserImage" WidthRequest="50" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="50" Source="noImage.png"/>
-                            <Label
-                                TextColor="White" FontSize="32"  VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="10,10,10,10" AbsoluteLayout.LayoutFlags="WidthProportional" HorizontalOptions="Center" Text="Welcome to Ideo!"/>
+                            <Frame BackgroundColor="Blue">
+                            <Image x:Name="UserImage" WidthRequest="100" HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand" HeightRequest="100" Source=""/>
+                            </Frame>
+                                <Label
+                                TextColor="White" FontSize="32" 
+                                VerticalOptions="CenterAndExpand" 
+                                AbsoluteLayout.LayoutBounds="10,10,10,10" AbsoluteLayout.LayoutFlags="WidthProportional" 
+                                HorizontalOptions="Center" Text="Welcome to Ideo!"/>
                         </StackLayout>
                     </Frame>
             </AbsoluteLayout>
