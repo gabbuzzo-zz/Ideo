@@ -11,11 +11,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\BestSchool.otf" />
+    <None Remove="Fonts\BestSchoolOutline.otf" />
+    <None Remove="Fonts\BestSchoolRegular.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\BestSchool.otf" />
+    <EmbeddedResource Include="Fonts\BestSchoolOutline.otf" />
+    <EmbeddedResource Include="Fonts\BestSchoolRegular.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\EnjoyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

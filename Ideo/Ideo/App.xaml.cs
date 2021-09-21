@@ -2,6 +2,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+[assembly: ExportFont("BestSchoolOutline.otf", Alias = "BSRegular")]
 
 namespace Ideo
 {
@@ -10,7 +11,7 @@ namespace Ideo
         public App()
         {
             InitializeComponent();
-            MainPage = new LoginPage();
+            MainPage = new EnjoyPage();
         }
 
         protected override void OnStart()

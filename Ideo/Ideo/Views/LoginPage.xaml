@@ -15,8 +15,8 @@
                          HorizontalOptions="FillAndExpand" CornerRadius="20">
                         <StackLayout>
                             <Frame BackgroundColor="Blue">
-                            <Image x:Name="UserImage" WidthRequest="100" HorizontalOptions="CenterAndExpand" 
-                                   VerticalOptions="CenterAndExpand" HeightRequest="100" Source=""/>
+                            <Image x:Name="UserImage"  HorizontalOptions="CenterAndExpand" 
+                                   VerticalOptions="CenterAndExpand"  Source="IdeooLogo.png"/>
                             </Frame>
                                 <Label
                                 TextColor="White" FontSize="32" 
