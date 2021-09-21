@@ -133,4 +133,7 @@
       <Name>Ideo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="noImage.png" />
+  </ItemGroup>
 </Project>
