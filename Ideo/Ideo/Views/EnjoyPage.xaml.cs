@@ -12,9 +12,11 @@ namespace Ideo.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EnjoyPage : ContentPage
     {
+        string fileName = "teamwork1.mp4";
         public EnjoyPage()
         {
             InitializeComponent();
+            this.BindingContext = fileName;
         }
     }
 }

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Ideo.Controls"
              x:Class="Ideo.Views.EnjoyPage" BackgroundColor="White">
     <!--<ContentPage.Background>
-        --><!-- StartPoint defaults to (0,0) --><!--
+        -->
+    <!-- StartPoint defaults to (0,0) -->
+    <!--
         <LinearGradientBrush>
             <GradientStop Color="Yellow"
                           Offset="0.1" />
@@ -12,44 +14,58 @@
         </LinearGradientBrush>
     </ContentPage.Background>-->
     <ContentPage.Content>
-        <StackLayout>
-        <!--<CarouselView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Grid HorizontalOptions="Fill" >
+            <controls:MediaPlayer FileName="teamwork1.mp4" BackgroundColor="Yellow" Looping="True"   HeightRequest="3000" WidthRequest="5000" /> <!--HorizontalOptions="Fill"-->
+
+            <!--<BoxView>
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
+                        <GradientStop Color="Transparent" Offset="0.2"/>
+                        <GradientStop Color="#fae1ab" Offset="0.9"/>
+                        <GradientStop Color="#fae1ab" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>-->
+
+            <Grid RowDefinitions="Auto,Auto,Auto" HeightRequest="300" Margin="30,30,30,100" RowSpacing="40" VerticalOptions="End">
+                <!--<CarouselView VerticalOptions="CenterAndExpand" ItemsSource="{Binding ListBackgroundVideos}" HorizontalOptions="CenterAndExpand">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>-->
-                        <controls:MediaPlayer BackgroundColor="AliceBlue" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></controls:MediaPlayer>
-            <Button></Button>
-                    <!--</DataTemplate>
-                </CarouselView.ItemTemplate>
-        </CarouselView>-->
-        <StackLayout>
-            <Frame  BackgroundColor="Transparent" BorderColor="Transparent"></Frame>
-            <Frame BackgroundColor="Yellow" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
-            <StackLayout VerticalOptions="CenterAndExpand" Padding="0,5,0,0">
-                <Label Text="Benvenuto su Ideo" FontSize="40" FontAttributes="Italic" FontFamily="BSRegular"
+
+                <!--</DataTemplate>
+                </CarouselView.ItemTemplate>-->
+                <!--</CarouselView>-->
+
+                <StackLayout>
+                    <!--<Frame  BackgroundColor="Transparent" BorderColor="Transparent"></Frame>
+                    <Frame BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">-->
+                    <StackLayout VerticalOptions="CenterAndExpand" Padding="0,5,0,0">
+                        <Label Text="Benvenuto su Ideo" FontSize="40" FontAttributes="Italic" FontFamily="BSRegular"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-                    <Label Text="L'app che ti permette di condividere le tue idee col mondo" FontSize="14" 
+                        <Label Text="L'app che ti permette di condividere le tue idee col mondo" FontSize="14" 
                    HorizontalTextAlignment="Center" HorizontalOptions="Center" TextTransform="Uppercase"
                    VerticalOptions="Start"/>
-                </StackLayout>
-            </Frame>
-            <!--<Frame></Frame>-->
-            <StackLayout VerticalOptions="EndAndExpand">
-                <Frame BackgroundColor="Transparent">
-                    <Button Text="Registrati subito!" FontAttributes="Italic" FontFamily="BSRegular"
+                    </StackLayout>
+                    <!--</Frame>-->
+                    <!--<Frame></Frame>-->
+                    <StackLayout VerticalOptions="EndAndExpand">
+                        <Frame BackgroundColor="Transparent">
+                            <Button Text="Registrati subito!" FontAttributes="Italic" FontFamily="BSRegular"
                             Padding="20,20,20,20" FontSize="32"  BackgroundColor="Yellow"
                             TextColor="Black"/>
-                </Frame>
-                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center">
-                    <Label Text="Oppure se hai un account" FontSize="18" VerticalTextAlignment="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
-                        <Button BackgroundColor="Transparent" FontSize="18" VerticalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue" Text="Accedi"/>
+                        </Frame>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center">
+                            <Label Text="Oppure se hai un account" FontSize="18" VerticalTextAlignment="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
+                            <Button BackgroundColor="Transparent" FontSize="18" VerticalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue" Text="Accedi"/>
+                        </StackLayout>
+                        <Frame BackgroundColor="Yellow">
+
+                        </Frame>
+
                     </StackLayout>
-                <Frame BackgroundColor="Yellow">
-
-                </Frame>
-
-            </StackLayout>
-        </StackLayout>
-        </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
