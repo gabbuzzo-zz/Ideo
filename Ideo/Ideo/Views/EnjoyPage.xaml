@@ -1,28 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ideo.Views.EnjoyPage" >
-    <ContentPage.Background>
-        <!-- StartPoint defaults to (0,0) -->
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:Ideo.Controls"
+             x:Class="Ideo.Views.EnjoyPage" BackgroundColor="White">
+    <!--<ContentPage.Background>
+        --><!-- StartPoint defaults to (0,0) --><!--
         <LinearGradientBrush>
             <GradientStop Color="Yellow"
                           Offset="0.1" />
             <GradientStop Color="Orange"
                           Offset="3.0" />
         </LinearGradientBrush>
-    </ContentPage.Background>
+    </ContentPage.Background>-->
     <ContentPage.Content>
         <StackLayout>
+        <!--<CarouselView VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>-->
+                        <controls:MediaPlayer BackgroundColor="AliceBlue" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></controls:MediaPlayer>
+            <Button></Button>
+                    <!--</DataTemplate>
+                </CarouselView.ItemTemplate>
+        </CarouselView>-->
+        <StackLayout>
             <Frame  BackgroundColor="Transparent" BorderColor="Transparent"></Frame>
-            <Frame BackgroundColor="Yellow" BorderColor="Black" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+            <Frame BackgroundColor="Yellow" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
             <StackLayout VerticalOptions="CenterAndExpand" Padding="0,5,0,0">
                 <Label Text="Benvenuto su Ideo" FontSize="40" FontAttributes="Italic" FontFamily="BSRegular"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="L'app che ti permette di condividere le tue idee col mondo" FontSize="14" 
+                    <Label Text="L'app che ti permette di condividere le tue idee col mondo" FontSize="14" 
                    HorizontalTextAlignment="Center" HorizontalOptions="Center" TextTransform="Uppercase"
                    VerticalOptions="Start"/>
-            </StackLayout>
+                </StackLayout>
             </Frame>
             <!--<Frame></Frame>-->
             <StackLayout VerticalOptions="EndAndExpand">
@@ -40,6 +49,7 @@
                 </Frame>
 
             </StackLayout>
+        </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
