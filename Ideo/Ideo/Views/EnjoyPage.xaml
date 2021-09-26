@@ -59,9 +59,9 @@
                             <Label Text="Oppure se hai un account" FontSize="18" VerticalTextAlignment="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
                             <Button BackgroundColor="Transparent" FontSize="18" VerticalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue" Text="Accedi"/>
                         </StackLayout>
-                        <Frame BackgroundColor="Yellow">
+                        <!--<Frame BackgroundColor="Yellow">
 
-                        </Frame>
+                        </Frame>-->
 
                     </StackLayout>
                 </StackLayout>
