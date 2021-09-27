@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Ideo.Kit.Models
 {
-    class Tag
+   public class Tag
     {
+        public Guid Id { get; set; }
+        public string Nome { get; set; }
     }
 }

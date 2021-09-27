@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Ideo.Kit.Models
 {
-    class Message
+   public class Message
     {
+        public Guid Id { get; set; }
+        public DateTime SendDate { get; set; }
+        public string Text { get; set; }
     }
 }

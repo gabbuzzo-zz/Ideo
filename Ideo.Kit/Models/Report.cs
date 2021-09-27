@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Ideo.Kit.Models
 {
-    class Report
+    public class Report
     {
+        public Guid Id { get; set; }
+        public string? Description { get; set; }
+        public ReportType ReportType { get; set; }
+
     }
 }

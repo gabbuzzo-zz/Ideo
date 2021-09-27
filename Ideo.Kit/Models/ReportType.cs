@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Ideo.Kit.Models
 {
-    class ReportType
+   public class ReportType
     {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }
