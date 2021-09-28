@@ -30,7 +30,7 @@
             <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand">
             <Entry x:Name="usrName" Placeholder="Username" MaxLength="15" HorizontalOptions="CenterAndExpand"/>
             <Entry x:Name="PssWord" Placeholder="Password" IsVisible="false" IsPassword="True" HorizontalOptions="CenterAndExpand" />
-            <Button Text="Accedi" Clicked="OnLoginClick"/>
+            <Button Text="Accedi"/>
         </StackLayout>
         </StackLayout>
     </ContentPage.Content>
