@@ -16,7 +16,7 @@ namespace Ideo.Views
     public partial class LoginPage : ContentPage
     {
         UserViewModel userViewModel = new UserViewModel();
-        ObservableCollection<UserCL> Users = new ObservableCollection<UserCL>();
+        ObservableCollection<User> Users = new ObservableCollection<User>();
         public LoginPage()
         {
             InitializeComponent();

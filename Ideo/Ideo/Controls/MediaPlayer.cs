@@ -14,7 +14,7 @@ namespace Ideo.Controls
         public enum Aspect { Fill,NoAspectFill}
         public BindableProperty FileNameProperty = BindableProperty.Create("FileName", typeof(string),typeof(MediaPlayer), defaultBindingMode: BindingMode.TwoWay);
         public BindableProperty LoopingProperty = BindableProperty.Create("Looping", typeof(bool),typeof(MediaPlayer), defaultBindingMode: BindingMode.TwoWay,defaultValue:true);
-        public BindableProperty AspectProperty = BindableProperty.Create("AspectMediaPlayer", typeof(int),typeof(MediaPlayer), defaultBindingMode: BindingMode.TwoWay,defaultValue:1);
+        public BindableProperty AspectProperty = BindableProperty.Create("AspectMediaPlayer", typeof(Aspect),typeof(MediaPlayer), defaultBindingMode: BindingMode.TwoWay,defaultValue:Aspect.Fill);
         public bool Play()
         {
             if (String.IsNullOrEmpty(FileName)) 

@@ -170,7 +170,7 @@
     <BundleResource Include="backGroundimage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="teamwork1.mp4" />
+    <EmbeddedResource Include="teamwork1.mp4" />
     <Content Include="teamwork2.mp4" />
     <Content Include="teamwork3.mp4" />
   </ItemGroup>

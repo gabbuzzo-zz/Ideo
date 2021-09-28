@@ -52,6 +52,7 @@ namespace Ideo.iOS
                 playerController.View.Frame = rect;
                 view.AddSubview(playerController.View);
                 view.ClipsToBounds = true;
+                playerController.Player.Play();
                 player.Play();
                 //this.view.Layer.AddSublayer(playerLayer);
                 SetNativeControl(view);

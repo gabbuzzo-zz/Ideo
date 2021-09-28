@@ -13,6 +13,6 @@ namespace Ideo.Models
         public bool IsAccepted { get; set; }
         public string RefusedCause { get; set; }
         public DateTime PublishDate { get; set; }
-        public List<TagCL> Tags { get; set; }
+        public List<Tag> Tags { get; set; }
     }
 }

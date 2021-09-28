@@ -10,9 +10,9 @@ namespace Ideo.Models
         public bool isAccepted { get; set; }
         public string Curriculum { get; set; }
         public DateTime SendDate { get; set; }
-        public MessageCL Message { get; set; }
-        public PostCL Post { get; set; }
-        public List<ReportCL> Reports { get; set; }
+        public Message Message { get; set; }
+        public Post Post { get; set; }
+        public List<Report> Reports { get; set; }
 
     }
 }
