@@ -35,8 +35,11 @@ namespace Ideo.Backend
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
+            else
+            {
+                app.UseHttpsRedirection();
+            }
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

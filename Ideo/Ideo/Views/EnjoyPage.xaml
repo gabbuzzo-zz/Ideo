@@ -15,17 +15,19 @@
     </ContentPage.Background>-->
     <ContentPage.Content>
         <Grid HorizontalOptions="Fill" >
-            <controls:MediaPlayer FileName="teamwork1.mp4" BackgroundColor="Yellow" Looping="True"   HeightRequest="3000" WidthRequest="5000" /> <!--HorizontalOptions="Fill"-->
-
-            <!--<BoxView>
+            <controls:MediaPlayer FileName="teamwork1.mp4" BackgroundColor="Yellow" Looping="True"
+                                  AspectMediaPlayer="Fill"/>
+            <!--HorizontalOptions="Fill"-->
+            <BoxView>
                 <BoxView.Background>
-                    <LinearGradientBrush StartPoint="1,0" EndPoint="1,1">
-                        <GradientStop Color="Transparent" Offset="0.2"/>
-                        <GradientStop Color="#fae1ab" Offset="0.9"/>
-                        <GradientStop Color="#fae1ab" Offset="1.0"/>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="1.1,0.5">
+                        <GradientStop Color="Transparent" Offset="0.3"/>
+                        <GradientStop Color="#d9d950" Offset="0.8"/>
+                        <GradientStop Color="#d9d955" Offset="1.7"/>
+                        <GradientStop Color="#d9d955" Offset="1.8"/>
                     </LinearGradientBrush>
                 </BoxView.Background>
-            </BoxView>-->
+            </BoxView>
 
             <Grid RowDefinitions="Auto,Auto,Auto" HeightRequest="300" Margin="30,30,30,100" RowSpacing="40" VerticalOptions="End">
                 <!--<CarouselView VerticalOptions="CenterAndExpand" ItemsSource="{Binding ListBackgroundVideos}" HorizontalOptions="CenterAndExpand">
@@ -50,18 +52,16 @@
                     <!--</Frame>-->
                     <!--<Frame></Frame>-->
                     <StackLayout VerticalOptions="EndAndExpand">
-                        <Frame BackgroundColor="Transparent">
                             <Button Text="Registrati subito!" FontAttributes="Italic" FontFamily="BSRegular"
-                            Padding="20,20,20,20" FontSize="32"  BackgroundColor="Yellow"
-                            TextColor="Black"/>
-                        </Frame>
+                            Padding="20,20,20,20" FontSize="32" CornerRadius="52" BorderColor="YellowGreen" BorderWidth="0.5"  BackgroundColor="Yellow"
+                            TextColor="Black" Margin="0,40,0,60"/>
                         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center">
                             <Label Text="Oppure se hai un account" FontSize="18" VerticalTextAlignment="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
                             <Button BackgroundColor="Transparent" FontSize="18" VerticalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue" Text="Accedi"/>
                         </StackLayout>
-                        <Frame BackgroundColor="Yellow">
+                        <!--<Frame BackgroundColor="Yellow">
 
-                        </Frame>
+                        </Frame>-->
 
                     </StackLayout>
                 </StackLayout>
