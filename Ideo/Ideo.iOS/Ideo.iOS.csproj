@@ -170,9 +170,9 @@
     <BundleResource Include="backGroundimage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="teamwork1.mp4" />
-    <Content Include="teamwork2.mp4" />
-    <Content Include="teamwork3.mp4" />
+    <Content Include="Resources\teamwork1.mp4" />
+    <Content Include="Resources\teamwork2.mp4" />
+    <Content Include="Resources\teamwork3.mp4" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
