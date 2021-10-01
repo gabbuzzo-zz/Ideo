@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace Ideo.Backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "PORCO", "MAIALE", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "DIO", "Scorching"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
@@ -24,6 +24,8 @@ namespace Ideo.Backend.Controllers
         }
 
         [HttpGet]
+        [Route("Dio/Get")]
+
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -34,6 +36,12 @@ namespace Ideo.Backend.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet]
+        [Route("Dio/Merda")]
+        public String Diomaiale() {
+            return "<h1>Cristo!!</h1>";
         }
     }
 }
