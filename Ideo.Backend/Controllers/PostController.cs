@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Ideo.Backend.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,33 +9,33 @@ using System.Threading.Tasks;
 
 namespace Ideo.Backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/posts")]
     [ApiController]
     public class PostController : ControllerBase
     {
         // GET: api/<PostController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Post> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new Post[] {  };
         }
 
         // GET api/<PostController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Post Get(int id)
         {
-            return "value";
+            return new Post { };
         }
 
         // POST api/<PostController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Post value)
         {
         }
 
         // PUT api/<PostController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Post value)
         {
         }
 
