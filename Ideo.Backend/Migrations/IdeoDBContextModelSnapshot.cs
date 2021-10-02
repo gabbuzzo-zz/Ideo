@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ideo.Backend.Migrations
 {
-    [DbContext(typeof(IdeoContext))]
-    partial class IdeoContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(IdeoDBContext))]
+    partial class IdeoDBContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -31,8 +31,8 @@ namespace Ideo.Backend.Migrations
                     b.Property<Guid?>("MessageId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("PostId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("SendDate")
                         .HasColumnType("datetime2");
@@ -78,9 +78,10 @@ namespace Ideo.Backend.Migrations
 
             modelBuilder.Entity("Ideo.Backend.Models.Post", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -157,8 +158,8 @@ namespace Ideo.Backend.Migrations
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("PostId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

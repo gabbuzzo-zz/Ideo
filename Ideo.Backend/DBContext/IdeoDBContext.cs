@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace Ideo.Backend.DBContext
 {
-    public class IdeoContext : DbContext
+    public class IdeoDBContext : DbContext
     {
-        public IdeoContext(DbContextOptions<IdeoContext> options)
-        : base(options)
+        public IdeoDBContext(DbContextOptions<IdeoDBContext> options): base(options)
         {
-            
+
         }
-        public DbSet<JobApplication>JobApplications{get;set;}
+        public DbSet<JobApplication> JobApplications { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Post> Posts { get; set; }
 
@@ -23,6 +22,5 @@ namespace Ideo.Backend.DBContext
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<VideoCourse> VideoCourses { get; set; }
-
     }
 }
