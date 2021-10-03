@@ -14,6 +14,7 @@ namespace Ideo.Backend.Models
         public string Name { get; set; }
         public string Username { get; set; }
         public string Curriculum { get; set; }
+        public DateTime BirthdayDate { get; set; }
         public List<JobApplication> JobApplications { get; set; }
         public List<Post> Posts { get; set; }
         public List<VideoCourse> VideoCourses { get; set; }
