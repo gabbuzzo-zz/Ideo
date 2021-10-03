@@ -1,4 +1,5 @@
 using Ideo.Backend.DBContext;
+using Ideo.Backend.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Ideo.Backend
 {
-    public class Startup
+    public class Startup: IHostingStartup
     {
         public Startup(IConfiguration configuration)
         {
@@ -27,7 +28,7 @@ namespace Ideo.Backend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<IdeoDBContext>(options =>
+            services.AddDbContext<IdeoBackendContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -36,6 +37,8 @@ namespace Ideo.Backend
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //.AddEntityFrameworkStores<ApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +67,19 @@ namespace Ideo.Backend
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        public void Configure(IWebHostBuilder builder)
+        {
+            builder.ConfigureServices((context, services) => {
+                services.AddDbContext<IdeoBackendContext>(options =>
+                    options.UseSqlServer(
+                        context.Configuration.GetConnectionString("DefaultConnection")));
+
+                services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<IdeoBackendContext>();
+            });
+
         }
     }
 }
