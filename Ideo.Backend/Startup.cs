@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Ideo.Backend
 {
-    public class Startup: IHostingStartup
+    public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -24,7 +24,7 @@ namespace Ideo.Backend
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        //This method gets called by the runtime.Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
@@ -69,17 +69,18 @@ namespace Ideo.Backend
             });
         }
 
-        public void Configure(IWebHostBuilder builder)
-        {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<IdeoBackendContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("DefaultConnection")));
+        //public void Configure(IWebHostBuilder builder)
+        //{
+        //    builder.ConfigureServices((context, services) =>
+        //    {
+        //        services.AddDbContext<IdeoBackendContext>(options =>
+        //            options.UseSqlServer(
+        //                context.Configuration.GetConnectionString("DefaultConnection")));
 
-                services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<IdeoBackendContext>();
-            });
+        //        services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+        //            .AddEntityFrameworkStores<IdeoBackendContext>();
+        //    });
 
-        }
+        //}
     }
 }
