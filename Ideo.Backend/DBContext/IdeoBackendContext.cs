@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Ideo.Backend.DBContext
 {
-    public class IdeoBackendContext : IdentityDbContext<IdentityUser>
+    public class IdeoBackendContext : IdentityDbContext<User>
     {
         public IdeoBackendContext(DbContextOptions<IdeoBackendContext> options)
             : base(options)
