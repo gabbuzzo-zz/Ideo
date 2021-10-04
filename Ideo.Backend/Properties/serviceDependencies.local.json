@@ -1,9 +1,10 @@
 {
   "dependencies": {
-    "secrets1": {
-      "type": "secrets.user"
-    },
     "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:DefaultConnection"
+    },
+    "mssql2": {
       "type": "mssql.local",
       "connectionId": "ConnectionStrings:IdeoBackendContextConnection"
     }

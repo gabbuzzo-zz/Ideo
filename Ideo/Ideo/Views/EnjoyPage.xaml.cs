@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Ideo.Models;
+using Ideo.ModelViews;
+using Ideo.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +20,17 @@ namespace Ideo.Views
         {
             InitializeComponent();
             this.BindingContext = fileName;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+           await Navigation.PushModalAsync(new RegisterPage() { BindingContext=new User()});
+        }
+
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var user = new UserViewModel().DefaultUser;
+            await Navigation.PushModalAsync(new LoginPage() { BindingContext =user });
         }
     }
 }

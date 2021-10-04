@@ -53,11 +53,11 @@
                     <!--<Frame></Frame>-->
                     <StackLayout VerticalOptions="EndAndExpand">
                             <Button Text="Registrati subito!" FontAttributes="Italic" FontFamily="BSRegular"
-                            Padding="20,20,20,20" FontSize="32" CornerRadius="52" BorderColor="YellowGreen" BorderWidth="0.5"  BackgroundColor="Yellow"
-                            TextColor="Black" Margin="0,40,0,60"/>
+                            Padding="20,20,20,20" FontSize="32" CornerRadius="52" BorderColor="YellowGreen" BorderWidth="0.5"  BackgroundColor="#d9d955"
+                            TextColor="Black" Margin="0,40,0,60" Clicked="Button_Clicked"/>
                         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Center">
                             <Label Text="Oppure se hai un account" FontSize="18" VerticalTextAlignment="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
-                            <Button BackgroundColor="Transparent" FontSize="18" VerticalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue" Text="Accedi"/>
+                            <Button BackgroundColor="Transparent" FontSize="18" VerticalOptions="Center" FontAttributes="Bold" TextColor="DarkBlue" Text="Accedi" Clicked="Button_Clicked_1"/>
                         </StackLayout>
                         <!--<Frame BackgroundColor="Yellow">
 

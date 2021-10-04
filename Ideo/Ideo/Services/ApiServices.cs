@@ -62,19 +62,19 @@ namespace Ideo.Services
 
             var content = await response.Content.ReadAsStringAsync();
 
-            //JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
-            var jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
-            var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
-            var accessToken = jwtDynamic.Value<string>("access_token");
+            var jwtDynamic = JsonConvert.DeserializeObject<object>(content);
+            //jwtDynamic.Value<DateTime>(".expires")
+            //var accessTokenExpiration =(DateTime)Convert.ToDateTime(jwtDynamic[".expires"]) ;
+            //var accessToken = jwtDynamic.Value<string>("access_token");
             var accessTokenInstance = new IdeoInstance();
-            accessTokenInstance.AccessTokenExpirationDate = accessTokenExpiration;
-            accessTokenInstance.Token = accessToken;
-            Debug.WriteLine(accessTokenExpiration);
-            Debug.WriteLine(accessToken);
-
+            //accessTokenInstance.AccessTokenExpirationDate = accessTokenExpiration;
+            //accessTokenInstance.Token = accessToken;
+            //Debug.WriteLine(accessTokenExpiration);
+            //Debug.WriteLine(accessToken);
+            Debug.WriteLine(jwtDynamic);
             Debug.WriteLine(content);
 
-            return accessToken;
+            return "";
         }
 
 

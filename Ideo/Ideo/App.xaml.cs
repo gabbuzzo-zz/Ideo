@@ -27,6 +27,7 @@ namespace Ideo
                 }
                 else
                 {
+                    user = new Models.User();
                     MainPage = new RegisterPage() { BindingContext = user };
                 }
             }
