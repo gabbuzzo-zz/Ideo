@@ -24,7 +24,9 @@ namespace Ideo.ModelViews
                 {
                     var isRegistered = await _apiServices.RegisterUserAsync
                         (Username, Password, ConfirmPassword);
-
+                    var api = new IdeoInstance();
+                    api.Username = Username;
+                    api.Password = Password;
                     //Settings.Username = Username;
                     //Settings.Password = Password;
 

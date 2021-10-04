@@ -19,9 +19,9 @@ namespace Ideo.ModelViews
             {
                 return new Command(async () =>
                 {
-                    //var accesstoken = await _apiServices.LoginAsync(Username, Password);
-                    //var ideo = new IdeoInstance().Token;
-                    //ideo = accesstoken;
+                    var accesstoken = await _apiServices.LoginAsync(Username, Password);
+                    var ideo = new IdeoInstance().Token;
+                    ideo = accesstoken;
                 });
             }
         }

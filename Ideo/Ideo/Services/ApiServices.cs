@@ -43,39 +43,39 @@ namespace Ideo.Services
             return false;
         }
 
-        //public async Task<string> LoginAsync(string userName, string password)
-        //{
-        //    var keyValues = new List<KeyValuePair<string, string>>
-        //    {
-        //        new KeyValuePair<string, string>("username", userName),
-        //        new KeyValuePair<string, string>("password", password),
-        //        new KeyValuePair<string, string>("grant_type", "password")
-        //    };
+        public async Task<string> LoginAsync(string userName, string password)
+        {
+            var keyValues = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("username", userName),
+                new KeyValuePair<string, string>("password", password),
+                new KeyValuePair<string, string>("grant_type", "password")
+            };
 
-        //    var request = new HttpRequestMessage(
-        //        HttpMethod.Post, Constants.RestUrl + "Token");
+            var request = new HttpRequestMessage(
+                HttpMethod.Post, Constants.RestUrl + "Token");
 
-        //    request.Content = new FormUrlEncodedContent(keyValues);
+            request.Content = new FormUrlEncodedContent(keyValues);
 
-        //    var client = new HttpClient();
-        //    var response = await client.SendAsync(request);
+            var client = new HttpClient();
+            var response = await client.SendAsync(request);
 
-        //    var content = await response.Content.ReadAsStringAsync();
+            var content = await response.Content.ReadAsStringAsync();
 
-        //    //JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
+            //JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
+            var jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
+            var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
+            var accessToken = jwtDynamic.Value<string>("access_token");
+            var accessTokenInstance = new IdeoInstance();
+            accessTokenInstance.AccessTokenExpirationDate = accessTokenExpiration;
+            accessTokenInstance.Token = accessToken;
+            Debug.WriteLine(accessTokenExpiration);
+            Debug.WriteLine(accessToken);
 
-        //    //var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
-        //    //var accessToken = jwtDynamic.Value<string>("access_token");
-        //    var accessTokenInstance = new IdeoInstance();
-        //    accessTokenInstance.AccessTokenExpirationDate= accessTokenExpiration;
-        //    accessTokenInstance.Token = accessToken;
-        //    Debug.WriteLine(accessTokenExpiration);
-        //    Debug.WriteLine(accessToken);
+            Debug.WriteLine(content);
 
-        //    Debug.WriteLine(content);
-
-        //    return accessToken;
-        //}
+            return accessToken;
+        }
 
 
         #region idea
@@ -142,4 +142,4 @@ namespace Ideo.Services
 
         #endregion    }
     }
-    }
+}
