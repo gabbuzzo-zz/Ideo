@@ -18,5 +18,6 @@ namespace Ideo.Models
         public List<Post> Posts { get; set; }
         public List<VideoCourse> VideoCourses { get; set; }
         public List<Message> Messages { get; set; }
+        public string ConfirmPassword { get; set; }
     }
 }

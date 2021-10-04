@@ -9,6 +9,10 @@ namespace Ideo.Services
     {
         private HttpClient _client;
         Uri uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+        public string Token { get; set; }
+        public DateTime AccessTokenExpirationDate { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         public IdeoInstance()
         {
             

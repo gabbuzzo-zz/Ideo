@@ -132,12 +132,6 @@
     <AndroidAsset Include="Assets\teamwork3.mp4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ideo\Ideo.csproj">
-      <Project>{26471ACB-1394-410D-AF17-718BD2805434}</Project>
-      <Name>Ideo</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\noImage.png" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +142,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\raw\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ideo\Ideo.csproj">
+      <Project>{7bb00946-4e2c-4e95-9bde-8c4d2dda5725}</Project>
+      <Name>Ideo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
