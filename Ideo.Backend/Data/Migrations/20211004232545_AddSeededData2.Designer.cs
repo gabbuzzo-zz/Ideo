@@ -7,18 +7,18 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Ideo.Backend.Migrations
+namespace Ideo.Backend.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211004212949_mgra2")]
-    partial class mgra2
+    [Migration("20211004232545_AddSeededData2")]
+    partial class AddSeededData2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.18")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Ideo.Backend.Models.JobApplication", b =>
@@ -189,8 +189,8 @@ namespace Ideo.Backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
@@ -208,12 +208,12 @@ namespace Ideo.Backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
@@ -237,20 +237,38 @@ namespace Ideo.Backend.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+                        .HasDatabaseName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
+                        .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "9ab299fe-e318-4d25-97fa-1525939629c0",
+                            AccessFailedCount = 0,
+                            BirthdayDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "93a4566a-2f0f-4c66-9b53-6525c7bc88e6",
+                            Email = "gabbuzzo@admin.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "GABBUZZO",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDNPDXAeqqZTWgdNfUcAFuVUV9cmz9jYZS1GebNJ0hQhexr73bTuiLotMzffv49AwA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "dc128cc5-226f-4352-9117-b80eb6e01e2e",
+                            TwoFactorEnabled = false,
+                            UserName = "Gabbuzzo"
+                        });
                 });
 
             modelBuilder.Entity("Ideo.Backend.Models.VideoCourse", b =>
@@ -288,21 +306,30 @@ namespace Ideo.Backend.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
+                        .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "admin_role",
+                            ConcurrencyStamp = "aead5900-0e0d-4037-b3e1-2e9e2a2779d6",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -356,12 +383,12 @@ namespace Ideo.Backend.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -390,6 +417,13 @@ namespace Ideo.Backend.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "admin_role"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -398,12 +432,12 @@ namespace Ideo.Backend.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -426,6 +460,10 @@ namespace Ideo.Backend.Migrations
                     b.HasOne("Ideo.Backend.Models.User", null)
                         .WithMany("JobApplications")
                         .HasForeignKey("UserId");
+
+                    b.Navigation("Message");
+
+                    b.Navigation("Post");
                 });
 
             modelBuilder.Entity("Ideo.Backend.Models.Message", b =>
@@ -451,6 +489,8 @@ namespace Ideo.Backend.Migrations
                     b.HasOne("Ideo.Backend.Models.ReportType", "ReportType")
                         .WithMany()
                         .HasForeignKey("ReportTypeId");
+
+                    b.Navigation("ReportType");
                 });
 
             modelBuilder.Entity("Ideo.Backend.Models.Tag", b =>
@@ -516,6 +556,27 @@ namespace Ideo.Backend.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Ideo.Backend.Models.JobApplication", b =>
+                {
+                    b.Navigation("Reports");
+                });
+
+            modelBuilder.Entity("Ideo.Backend.Models.Post", b =>
+                {
+                    b.Navigation("Tags");
+                });
+
+            modelBuilder.Entity("Ideo.Backend.Models.User", b =>
+                {
+                    b.Navigation("JobApplications");
+
+                    b.Navigation("Messages");
+
+                    b.Navigation("Posts");
+
+                    b.Navigation("VideoCourses");
                 });
 #pragma warning restore 612, 618
         }
