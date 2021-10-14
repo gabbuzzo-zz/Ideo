@@ -20,7 +20,7 @@ namespace Ideo.Services
         public bool IsConnected()
         {
             _client = new HttpClient();
-            var response = _client.GetAsync(uri);
+            var response = _client.GetAsync(uri+"Account/");
             return response.Result.IsSuccessStatusCode;
         }
     }

@@ -23,6 +23,14 @@ namespace Ideo.Views
             //Users = userViewModel.GetUsers();
         }
 
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            //var Ideas = new IdeaViewModel().Ideas;
+            //var mainPage = new MainPage();
+            //mainPage.BindingContext = Ideas;
+            await Navigation.PushModalAsync(new MainPage());
+        }
+
         //private async void OnLoginClick(object sender, EventArgs e)
         //{
         //    #region Flusso

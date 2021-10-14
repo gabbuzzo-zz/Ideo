@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ideo.Models;
+using Ideo.ModelViews;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,19 @@ namespace Ideo.Views
         public RegisterPage()
         {
             InitializeComponent();
+            //this.BindingContext = new RegisterViewModel();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            var model=this.BindingContext as RegisterViewModel;
+            var newModel = new LoginViewModel()
+            {
+                Username = model.Username,
+                Password = model.Password,
+            };
+            await Navigation.PushModalAsync(new LoginPage() { BindingContext = newModel });
+
         }
     }
 }

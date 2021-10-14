@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Ideo.ModelViews"
              x:Class="Ideo.Views.MainPage">
+    <ContentPage.BindingContext>
+        <vm:IdeaViewModel></vm:IdeaViewModel>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout>
@@ -10,13 +13,14 @@
                 HorizontalOptions="CenterAndExpand" />
             </StackLayout>
             <StackLayout>
-                <ListView ItemsSource="{Binding Ideas,Mode=TwoWay}" ItemTapped="OnItemTapped" >
+                <ListView ItemsSource="{Binding Ideas,Mode=Default}" ItemTapped="OnItemTapped" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout BindingContext="{Binding .,Mode=Default}" Orientation="Horizontal">
                                 <Label IsVisible="false" Text="{Binding Id,Mode=Default}"/>
                                 <Label Text="{Binding Title,Mode=Default}"/>
+                                    <Label Text="{Binding Description,Mode=Default}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
