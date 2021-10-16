@@ -20,6 +20,8 @@ using Azure.Storage.Blobs;
 using Azure.Core.Extensions;
 using IdeoRestfulService.Context;
 using Microsoft.EntityFrameworkCore;
+using IdeoRestfulService.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace IdeoRestfulService
 {
@@ -38,6 +40,8 @@ namespace IdeoRestfulService
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+            //Aggiunge identità e il suo ruolo allo startup dell'applicazione
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

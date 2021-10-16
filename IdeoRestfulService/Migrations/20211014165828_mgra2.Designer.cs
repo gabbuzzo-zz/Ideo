@@ -4,14 +4,16 @@ using IdeoRestfulService.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IdeoRestfulService.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211014165828_mgra2")]
+    partial class mgra2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace IdeoRestfulService.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("JobApplications");
+                    b.ToTable("JobApplication");
                 });
 
             modelBuilder.Entity("IdeoRestfulService.Models.Message", b =>
@@ -73,7 +75,7 @@ namespace IdeoRestfulService.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Messages");
+                    b.ToTable("Message");
                 });
 
             modelBuilder.Entity("IdeoRestfulService.Models.Post", b =>
@@ -108,7 +110,7 @@ namespace IdeoRestfulService.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Posts");
+                    b.ToTable("Post");
                 });
 
             modelBuilder.Entity("IdeoRestfulService.Models.Report", b =>
@@ -132,7 +134,7 @@ namespace IdeoRestfulService.Migrations
 
                     b.HasIndex("ReportTypeId");
 
-                    b.ToTable("Reports");
+                    b.ToTable("Report");
                 });
 
             modelBuilder.Entity("IdeoRestfulService.Models.ReportType", b =>
@@ -146,7 +148,7 @@ namespace IdeoRestfulService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ReportTypes");
+                    b.ToTable("ReportType");
                 });
 
             modelBuilder.Entity("IdeoRestfulService.Models.Tag", b =>
@@ -165,7 +167,7 @@ namespace IdeoRestfulService.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("IdeoRestfulService.Models.User", b =>
@@ -273,7 +275,7 @@ namespace IdeoRestfulService.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("VideoCourses");
+                    b.ToTable("VideoCourse");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

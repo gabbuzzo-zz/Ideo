@@ -1,23 +1,29 @@
-﻿using IdeoRestfulService.Models;
+﻿using IdeoRestfulService.Context;
+using IdeoRestfulService.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace IdeoRestfulService.Controllers
 {
+    [Authorize]
     [Route("[controller]")]
     [ApiController]
     public class PostController : ControllerBase
     {
+        private ApplicationDbContext context = new ApplicationDbContext();
         // GET: api/<PostController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Post> Get()
         {
-            return new string[] { "value1", "value2" };
+            return context.Posts.ToList();
         }
 
         // GET api/<PostController>/5
@@ -29,8 +35,24 @@ namespace IdeoRestfulService.Controllers
 
         // POST api/<PostController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async void Post ([FromBody]Post value)
         {
+            try
+            {
+                if (value == null)
+                    Debug.WriteLine(value + "Vuoto");
+                    //return BadRequest("");
+                context.Posts.Add(value);
+               await context.SaveChangesAsync();
+                //return CreatedAtAction(nameof(GetEmployee),
+                    //new { id = createdEmployee.EmployeeId }, createdEmployee);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine( StatusCodes.Status500InternalServerError.ToString()+
+                    "Error creating new employee record/"+ex.Message);
+            }
+            //return BadRequest("NON OK");
         }
 
         // PUT api/<PostController>/5

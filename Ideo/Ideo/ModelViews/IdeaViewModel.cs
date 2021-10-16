@@ -19,7 +19,7 @@ namespace Ideo.ModelViews
         {
                 new Post()
                 {
-                    Id=Guid.NewGuid(),Description="Progetto Web Api Core C#",
+                    Id=2,Description="Progetto Web Api Core C#",
                     PublishDate=DateTime.Now,
                     IsAccepted=true,
                     Tags=new List<Tag>(){
@@ -30,7 +30,7 @@ namespace Ideo.ModelViews
                 },
                 new Post()
                 {
-                    Id=Guid.NewGuid(),Description="Progetto Xamarin forms C#",
+                    Id=3,Description="Progetto Xamarin forms C#",
                     PublishDate=DateTime.Now,
                     IsAccepted=true,
                     Tags=new List<Tag>(){

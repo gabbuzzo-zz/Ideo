@@ -28,7 +28,7 @@ namespace Ideo.Views
         {
             var post = new Post()
             {
-                Id = Guid.NewGuid(),
+                Id = 1,
                 SharedFile = "",
                 Description = "new Project based on Web Api .core",
                 IsAccepted = true,
