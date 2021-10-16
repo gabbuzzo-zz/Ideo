@@ -22,6 +22,7 @@ using IdeoRestfulService.Context;
 using Microsoft.EntityFrameworkCore;
 using IdeoRestfulService.Models;
 using Microsoft.AspNetCore.Identity;
+using IdeoRestfulService.Services;
 
 namespace IdeoRestfulService
 {
@@ -37,6 +38,7 @@ namespace IdeoRestfulService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ITokenJWTProvider, AuthenticationJWTBearer>();
             services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));

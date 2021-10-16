@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -17,27 +18,42 @@ namespace Ideo.Services
         public async Task<bool> RegisterUserAsync(
             string email, string password, string confirmPassword)
         {
-            var client = new HttpClient();
-
-            var model = new User()
+            var handler = new HttpClientHandler()
             {
-                Email = email,
+                ClientCertificateOptions = ClientCertificateOption.Automatic
+            };
+
+            handler.ServerCertificateCustomValidationCallback +=
+                            (sender, certificate, chain, errors) =>
+                            {
+                                return true;
+                            };
+            var client = new HttpClient(handler);
+
+            var model = new RegisterViewModel()
+            {
+                Email=email,
                 Password = password,
                 ConfirmPassword = confirmPassword
             };
-
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
             var json = JsonConvert.SerializeObject(model);
 
             HttpContent httpContent = new StringContent(json);
 
             httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            var response = await client.PostAsync(
-                Constants.RestUrl + "Account/Register", httpContent);
-
-            if (response.IsSuccessStatusCode)
+            try
             {
-                return true;
+                var response = await client.PostAsync(
+                    Constants.RestUrl + "user/register", httpContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
             }
 
             return false;

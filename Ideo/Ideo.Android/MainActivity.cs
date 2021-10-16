@@ -4,6 +4,10 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Android.Content;
+using Org.Apache.Http.Conn.Schemes;
+using System.Net;
+using System.Net.Security;
 
 namespace Ideo.Droid
 {
@@ -13,6 +17,17 @@ namespace Ideo.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            // HERE
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
+            {
+                // local dev, just approve all certs
+#if DEBUG
+                return true;
+#endif
+
+                return errors == SslPolicyErrors.None;
+            };
+            // Create Context 
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

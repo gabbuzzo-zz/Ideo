@@ -1,21 +1,31 @@
-﻿using Ideo.Services;
+﻿using Ideo.Models;
+using Ideo.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Ideo.ModelViews
 {
-   public class RegisterViewModel
+    public class RegisterViewModel
     {
         private readonly ApiServices _apiServices = new ApiServices();
 
-        public string Username { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+        [EmailAddress]
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare("Password", ErrorMessage = "Password e conferma Password non combaciano.")]
         public string ConfirmPassword { get; set; }
-        public string Message { get; set; }
+        public const string GrantPassword = "grant_password";
         public ICommand RegisterCommand
         {
             get
@@ -23,25 +33,24 @@ namespace Ideo.ModelViews
                 return new Command(async () =>
                 {
                     var isRegistered = await _apiServices.RegisterUserAsync
-                        (Username, Password, ConfirmPassword);
+                        (Email, Password, ConfirmPassword);
                     var api = new IdeoInstance();
-                    api.Username = Username;
+                    api.Username = Email;
                     api.Password = Password;
                     //Settings.Username = Username;
                     //Settings.Password = Password;
 
                     if (isRegistered)
                     {
-                        Message = "Success :)";
-                        Debug.WriteLine(Message);
+                        Debug.WriteLine("success");
                     }
                     else
                     {
-                        Message = "Please try again :'(";
-                        Debug.WriteLine(Message);
+                        Debug.WriteLine("");
                     }
                 });
             }
         }
+
     }
 }
