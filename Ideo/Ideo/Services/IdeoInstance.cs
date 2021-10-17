@@ -5,9 +5,9 @@ using System.Net.Http;
 
 namespace Ideo.Services
 {
-   public class IdeoInstance:HttpClient
+    public class IdeoInstance : HttpClient
     {
-        private HttpClient _client;
+        public HttpClient client { get; set; }
         Uri uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
         public string Token { get; set; }
         public DateTime AccessTokenExpirationDate { get; set; }
@@ -15,12 +15,23 @@ namespace Ideo.Services
         public string Password { get; set; }
         public IdeoInstance()
         {
-            
+            var handler = new HttpClientHandler()
+            {
+                ClientCertificateOptions = ClientCertificateOption.Automatic
+            };
+
+            handler.ServerCertificateCustomValidationCallback +=
+                            (sender, certificate, chain, errors) =>
+                            {
+                                return true;
+                            };
+            var client = new HttpClient(handler);
+            this.client = client;
         }
         public bool IsConnected()
         {
-            _client = new HttpClient();
-            var response = _client.GetAsync(uri+"Account/");
+            client = new HttpClient();
+            var response = client.GetAsync(uri+"swagger/");
             return response.Result.IsSuccessStatusCode;
         }
     }

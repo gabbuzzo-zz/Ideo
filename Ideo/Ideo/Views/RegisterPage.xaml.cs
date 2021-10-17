@@ -23,16 +23,16 @@ namespace Ideo.Views
             //this.BindingContext = new RegisterViewModel();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            var model=this.BindingContext as RegisterViewModel;
-            var newModel = new RegisterViewModel()
-            {
-                Email = model.Email,
-                Password = model.Password,
-            };
-            //await Navigation.PushModalAsync(new LoginPage() { BindingContext = newModel });
-        }
+        //private async void Button_Clicked(object sender, EventArgs e)
+        //{
+        //    var model=this.BindingContext as RegisterViewModel;
+        //    var newModel = new RegisterViewModel()
+        //    {
+        //        Email = model.Email,
+        //        Password = model.Password,
+        //    };
+        //    //await Navigation.PushModalAsync(new LoginPage() { BindingContext = newModel });
+        //}
 
 
     }

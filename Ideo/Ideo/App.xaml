@@ -1,10 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ideo.App">
+             x:Class="Ideo.App"
+             xmlns:xm="clr-namespace:Ideo.Controls">
     <Application.Resources>
+        <Style TargetType="StackLayout">
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
+            <Setter Property="IsClippedToBounds" Value="True"></Setter>
+            <Setter Property="BackgroundColor" Value="Transparent"></Setter>
+        </Style>
         <Style TargetType="Button">
-            <Setter Property="BackgroundColor" Value="DarkSlateBlue"></Setter>
+            <Setter Property="CornerRadius" Value="50"></Setter>
+            <Setter Property="BackgroundColor" Value="#F1DA12"></Setter>
+            <Setter Property="TextColor" Value="#43404F"></Setter>
+            <Setter Property="FontSize" Value="32"></Setter>
+            <Setter Property="FontFamily" Value="BSRegular"></Setter>
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="#F1DA12"></Setter>
+            <Setter Property="TextColor" Value="#43404F"></Setter>
+            <Setter Property="FontFamily" Value="BSRegular"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+        </Style>
+        <Style TargetType="xm:EntryPassword">
+            <Setter Property="TextColor" Value="#43404F"></Setter>
+            <Setter Property="BackgroundColor" Value="#F1DA12"></Setter>
+            <Setter Property="FontFamily" Value="BSRegular"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
         </Style>
     </Application.Resources>
 </Application>

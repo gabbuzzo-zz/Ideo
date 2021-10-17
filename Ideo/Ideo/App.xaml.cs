@@ -28,6 +28,7 @@ namespace Ideo
             //}
             //else
             //{
+
             var user = new RegisterViewModel() { Email ="gabbuzzoxam@admin.com",Password="Gab,123",ConfirmPassword="Gab,123"};
             MainPage = new RegisterPage() { BindingContext = user };
         

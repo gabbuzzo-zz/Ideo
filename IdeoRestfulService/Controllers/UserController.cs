@@ -1,5 +1,6 @@
 ﻿using IdeoRestfulService.Context;
 using IdeoRestfulService.Models;
+using IdeoRestfulService.Services;
 using IdeoRestfulService.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace IdeoRestfulService.Controllers
@@ -66,7 +69,15 @@ namespace IdeoRestfulService.Controllers
 
                 if (result.Succeeded)
                 {
-                    return Ok(result);
+                    AuthenticationJWTBearer bearer = new AuthenticationJWTBearer();
+                    byte[] inputBytes = Encoding.UTF8.GetBytes(user.Password);
+                    var algorithm = new SHA256CryptoServiceProvider();
+                    byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
+
+                    var strPassHash=BitConverter.ToString(hashedBytes);
+                    var userTo=context.Users.Where(x => x.Email == user.Email && x.PasswordHash == strPassHash).First();
+                    string s=bearer.Authenticate(userTo);
+                    return Ok(s);
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");

@@ -15,21 +15,15 @@ namespace Ideo.Services
 {
     internal class ApiServices
     {
+        private HttpClient client;
+        public ApiServices()
+        {
+            var instance = new IdeoInstance();
+            client = instance.client;
+        }
         public async Task<bool> RegisterUserAsync(
             string email, string password, string confirmPassword)
         {
-            var handler = new HttpClientHandler()
-            {
-                ClientCertificateOptions = ClientCertificateOption.Automatic
-            };
-
-            handler.ServerCertificateCustomValidationCallback +=
-                            (sender, certificate, chain, errors) =>
-                            {
-                                return true;
-                            };
-            var client = new HttpClient(handler);
-
             var model = new RegisterViewModel()
             {
                 Email=email,
